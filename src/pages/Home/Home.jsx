@@ -1,10 +1,12 @@
-import React from 'react';
+import LenisWrapper from '../../components/LenisWrapper';
 import Banner from './Banner';
 
 const Home = () => {
     return (
         <div>
-            <Banner />
+            <LenisWrapper>
+                <Banner />
+            </LenisWrapper>
         </div>
     );
 };
