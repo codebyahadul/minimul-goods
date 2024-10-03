@@ -1,36 +1,31 @@
+/* eslint-disable react/prop-types */
 // HeroSection.jsx
 import Img1 from '../assets/new-project-img01.jpg';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 
-gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection = ({ titleRef }) => {
   useGSAP(() => {
-    const tl = gsap.timeline();
-    tl.to(titleRef.current, {
-      y: 50,
-      fontSize: 0,
-      opacity: 0,
-      zIndex: 20,
-      duration: 3,
+    gsap.from(titleRef.current, {
+      y: -180,
+      scale: 10.7,
       scrollTrigger: {
         trigger: titleRef.current,
-        start: 'top 50%',
-        end: 'top 0%',
-        scrub: true,
+        scroller: "body",
+        start: "top 55%",
+        end: "bottom -5%",
+        scrub: 2,
       },
     });
   }, []);
 
   return (
-    <div className="w-full h-full relative flex flex-col">
-      <img className="w-full h-full object-cover" src={Img1} alt="" />
-      <h1 ref={titleRef} className="absolute text-white bottom-0 text-[14vw] font-bold text-center w-full">
-        MinimalGoods
-      </h1>
-    </div>
+    <section
+        style={{ backgroundImage: `url(${Img1})` }}
+        className="min-h-screen  bg-cover bg-center bg-no-repeat "
+      >
+      </section>
   );
 };
 

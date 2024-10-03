@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 // LenisWrapper.jsx
 import { useEffect, useRef } from 'react';
 import Lenis from '@studio-freight/lenis';
