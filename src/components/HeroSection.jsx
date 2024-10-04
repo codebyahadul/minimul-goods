@@ -4,9 +4,9 @@ import Img1 from '../assets/new-project-img01.jpg';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 
-
 const HeroSection = ({ titleRef }) => {
-  useGSAP(() => {
+
+ useGSAP(() => {
     gsap.from(titleRef.current, {
       y: -180,
       scale: 10.7,
