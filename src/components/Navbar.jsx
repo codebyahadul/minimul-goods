@@ -23,8 +23,8 @@ const Navbar = () => {
   const dRef = useRef()
   const titleRef = useRef()
   const productRef = useRef()
-  
-var text = ['Furniture', 'Decor']
+
+  var text = ['Furniture', 'Decor']
   useGSAP(() => {
     gsap.from(titleRef.current, {
       y: -180,
@@ -122,34 +122,13 @@ var text = ['Furniture', 'Decor']
       .to('.text-container', {
         y: '-100%'
       })
-      .to('.p-name1', {
-        opacity: 0,
-      })
-      .to('.main', {
-        background: 'red'
-      })
-      .to('.p-name2', {
-        opacity: 1,
-      })
-      .to('.p-name2', {
-        opacity: 0,
-      })
-      .to('.main', {
-        background: 'green'
-      })
-      .to('.p-name3', {
-        opacity: 1,
-      })
-      .to('.p-name3', {
-        opacity: 0,
-      })
-      .to('.main', {
-        background: 'yellow'
-      })
-      .to('.p-name4', {
-        opacity: 1,
-      })
-
+      .to('.furniture div', {opacity: 1, y: '-200%', duration: 2.5,})
+      .fromTo('.head1', {opacity: 1,}, {opacity: 0})
+      .fromTo('.head2', {opacity: 0,}, {opacity: 1,})
+      .to('.decor div', {opacity: 1, y: '-200%', duration: 2.5,})
+      .fromTo('.head2', {opacity: 1,}, {opacity: 0})
+      .fromTo('.head3', {opacity: 0,}, {opacity: 1,})
+      .to('.office div', {opacity: 1, y: '-200%', duration: 2.5,})
   }, []);
   return (
     <>
@@ -210,10 +189,34 @@ var text = ['Furniture', 'Decor']
               </div>
             </div>
             <div>
-              <h1 className='text-[200px] font-black p-name1 absolute '>Furniture</h1>
-              <h1 className='text-[200px] font-black p-name2 absolute opacity-0'>Decor</h1>
-              <h1 className='text-[200px] font-black p-name3 absolute opacity-0'>Office</h1>
-              <h1 className='text-[200px] font-black p-name4 opacity-0'>Electronics</h1>
+              {/* furniture div */}
+              <div className='absolute bottom-0 furniture'>
+                <h1 className='text-[200px] font-black head1 absolute opacity-100 '>Furniture</h1>
+                <div className=' flex gap-10 max-w-7xl office mx-auto opacity-0'>
+                  <img className='w-[350px] h-[300px] -mt-20' src={fur1} alt="" />
+                  <img className='w-[300px] h-[300px] mt-10' src={fur2} alt="" />
+                  <img className='w-[300px] h-[300px] -mt-20' src={fur3} alt="" />
+                  <img className='w-[300px] h-[300px]' src={fur4} alt="" />
+                </div>
+              </div>
+              <div className='absolute bottom-0 decor'>
+                <h1 className='text-[200px] font-black head2 absolute opacity-0 '>Decor</h1>
+                <div className=' flex gap-10 max-w-7xl office mx-auto opacity-0'>
+                  <img className='w-[350px] h-[300px] -mt-20' src={decor1} alt="" />
+                  <img className='w-[300px] h-[300px] mt-10' src={decor2} alt="" />
+                  <img className='w-[300px] h-[300px] -mt-20' src={decor3} alt="" />
+                  <img className='w-[300px] h-[300px]' src={decor4} alt="" />
+                </div>
+              </div>
+              <div className='absolute bottom-0 office'>
+                <h1 className='text-[200px] font-black head3 absolute opacity-0 '>Office</h1>
+                <div className=' flex gap-10 max-w-7xl office mx-auto opacity-0'>
+                  <img className='w-[350px] h-[300px] -mt-20' src={office1} alt="" />
+                  <img className='w-[300px] h-[300px] mt-10' src={office2} alt="" />
+                  <img className='w-[300px] h-[300px] -mt-20' src={office3} alt="" />
+                  <img className='w-[300px] h-[300px]' src={office4} alt="" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
